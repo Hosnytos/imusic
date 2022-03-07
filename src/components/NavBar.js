@@ -4,6 +4,7 @@ import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
 import { SideBarData } from "./SideBarData";
 import "./NavBar.css";
+import Greetings from "./Greetings";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(true);
@@ -12,7 +13,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <Link to="#" className="menu-bars"></Link>
-        <FaIcons.FaBars onClick={showSidebar} />
+        <Greetings />
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
