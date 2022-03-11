@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
 import { SideBarData } from "./SideBarData";
 import "./NavBar.css";
 import Greetings from "./Greetings";
+import Input from "./Input";
+import ThemeSwitch from "./ThemeSwitch";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(true);
@@ -14,6 +15,8 @@ function Navbar() {
       <div className="navbar">
         <Link to="#" className="menu-bars"></Link>
         <Greetings />
+        <Input />
+        <ThemeSwitch />
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
