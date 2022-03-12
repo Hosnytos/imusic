@@ -9,8 +9,8 @@ import Input from "./Input";
 import ThemeSwitch from "./ThemeSwitch";
 
 function Navbar() {
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const [sidebar, setSidebar] = useState(true);
+  const showSidebar = () => setSidebar(true);
   return (
     <>
       <div className="navbar">
