@@ -8,7 +8,7 @@ import Profil from "./pages/Profil";
 
 function App() {
   return (
-    <>
+    <div className="root">
       <Router>
         <Navbar />
         <Routes>
@@ -18,7 +18,7 @@ function App() {
           <Route path="/profil" element={<Profil />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

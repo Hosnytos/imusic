@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     position: "relative",
     height: "45px",
     width: "400px",
-    borderRadius: "25px",
+    borderRadius: "10px",
     fontSize: "15px",
     paddingLeft: "20px",
   },

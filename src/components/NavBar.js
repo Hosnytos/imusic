@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as RiIcons from "react-icons/ri";
+import * as FaIcons from "react-icons/fa";
 import { SideBarData } from "./SideBarData";
 import "./NavBar.css";
 import Greetings from "./Greetings";
@@ -8,12 +9,13 @@ import Input from "./Input";
 import ThemeSwitch from "./ThemeSwitch";
 
 function Navbar() {
-  const [sidebar, setSidebar] = useState(true);
-  const showSidebar = () => setSidebar(true);
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
       <div className="navbar">
         <Link to="#" className="menu-bars"></Link>
+        <FaIcons.FaBars onClick={showSidebar} className="display-menu-icon" />
         <Greetings />
         <Input />
         <ThemeSwitch />
