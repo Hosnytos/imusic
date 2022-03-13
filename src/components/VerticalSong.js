@@ -9,7 +9,7 @@ function VerticalSong({ data }) {
     <div className={classes.root}>
       <ul>
         {data.map((entry) => (
-          <li key={entry.id} className={classes.item}>
+          <li key={entry.idTrack} className={classes.item}>
             <Link to={"#"} className={classes.link}>
               <SongCard {...entry} />
             </Link>

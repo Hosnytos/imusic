@@ -5,7 +5,9 @@ const useStyles = createUseStyles({
     height: 250,
     width: "18vw",
     borderRadius: 10,
-    background: ({ imageURL }) => (imageURL ? `url(${imageURL})` : "grey"),
+    backgroundImage: ({ imageURL }) => (imageURL ? `url(${imageURL})` : "grey"),
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
@@ -24,7 +26,7 @@ const useStyles = createUseStyles({
     color: "black",
     borderRadius: 50,
     height: 32,
-    fontSize: 12,
+    fontSize: 14,
   },
 });
 

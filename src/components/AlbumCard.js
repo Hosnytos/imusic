@@ -2,14 +2,13 @@ import React from "react";
 
 import useStyles from "./AlbumCard.style";
 
-function AlbumCard({ id, poster_path, title }) {
-  const imageURL =
-    poster_path && `https://image.tmdb.org/t/p/w92${poster_path}`;
+function AlbumCard({ idAlbum, strAlbumThumb, strAlbum }) {
+  const imageURL = strAlbumThumb;
   const classes = useStyles({ imageURL });
 
   return (
     <div className={classes.root}>
-      <h2 className={classes.albumName}>{title}</h2>
+      <h2 className={classes.albumName}>{strAlbum}</h2>
     </div>
   );
 }
