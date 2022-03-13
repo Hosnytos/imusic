@@ -5,6 +5,15 @@ import AlbumCard from "./AlbumCard";
 
 function VerticalAlbum({ data }) {
   const classes = useStyles();
+  function setData(idAlbum, strArtist, strAlbum) {
+    let obj = {
+      idAlbum: `${idAlbum}`,
+      strArtist: `${strArtist}`,
+      strAlbum: `${strAlbum}`,
+    };
+    localStorage.setItem("myData", JSON.stringify(obj));
+    window.location.reload();
+  }
 
   return (
     <div className={classes.root}>
@@ -12,7 +21,13 @@ function VerticalAlbum({ data }) {
       <ul>
         {data.map((entry) => (
           <li key={entry.idAlbum} className={classes.item}>
-            <Link to={"#"} className={classes.link}>
+            <Link
+              to={"#"}
+              onClick={() =>
+                setData(entry.idAlbum, entry.strArtist, entry.strAlbum)
+              }
+              className={classes.link}
+            >
               <AlbumCard {...entry} />
             </Link>
           </li>

@@ -13,9 +13,8 @@ function Home() {
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-          "x-rapidapi-key":
-            "ca98d798bamshd0e88a8da3efd43p17a0b1jsn62feebbccdac",
+          "x-rapidapi-host": `${process.env.REACT_APP_API_URL}`,
+          "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`,
         },
       }
     )

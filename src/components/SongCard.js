@@ -3,7 +3,13 @@ import "./SongCard.css";
 import * as GiIcons from "react-icons/gi";
 import * as RiIcons from "react-icons/ri";
 
-function SongCard({ strTrack, strArtist, intDuration, strTrackThumb }) {
+function SongCard({
+  strTrack,
+  strArtist,
+  intDuration,
+  strTrackThumb,
+  strMusicVid,
+}) {
   const noBackgroundImage =
     "https://i.ytimg.com/an/BqKmavyftEA-fJm8s_6TmA/featured_channel.jpg?v=61f939c2";
   const songName = strTrack;

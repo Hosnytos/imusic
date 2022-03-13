@@ -9,8 +9,8 @@ export const SideBarData = [
     cName: "nav-text",
   },
   {
-    title: "Trend",
-    path: "/trend",
+    title: "Discover",
+    path: "/discover",
     icon: <RiIcons.RiCompass3Line />,
     cName: "nav-text",
   },

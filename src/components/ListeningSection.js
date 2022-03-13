@@ -14,9 +14,8 @@ function ListeningSection() {
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-          "x-rapidapi-key":
-            "ca98d798bamshd0e88a8da3efd43p17a0b1jsn62feebbccdac",
+          "x-rapidapi-host": `${process.env.REACT_APP_API_URL}`,
+          "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`,
         },
       }
     )
@@ -26,20 +25,19 @@ function ListeningSection() {
       .catch((err) => {
         console.error(err);
       });
-    const data = await response.json();
-    const albums = data.loved;
+    const famousAlbums = await response.json();
+    const albums = famousAlbums.loved;
     setFamousAlbum(albums);
   }
 
-  async function fetchTrackByAlbum() {
+  async function fetchTrackByAlbum(myId) {
     const response = await fetch(
-      "https://theaudiodb.p.rapidapi.com/track.php?m=2118223",
+      "https://theaudiodb.p.rapidapi.com/track.php?m=" + myId + "%20",
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-          "x-rapidapi-key":
-            "ca98d798bamshd0e88a8da3efd43p17a0b1jsn62feebbccdac",
+          "x-rapidapi-host": `${process.env.REACT_APP_API_URL}`,
+          "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`,
         },
       }
     )
@@ -54,10 +52,18 @@ function ListeningSection() {
     setTrackByAlbum(tracks);
   }
 
+  function getData() {
+    let data = localStorage.getItem("myData");
+    data = JSON.parse(data);
+    return data.idAlbum;
+  }
+
+  const myId = getData();
+
   useEffect(() => {
     fetchFamousAlbum();
-    fetchTrackByAlbum();
-  }, []);
+    fetchTrackByAlbum(myId);
+  }, [myId]);
 
   return (
     <div className={classes.root}>

@@ -5,8 +5,16 @@ import SongCard from "./SongCard";
 
 function VerticalSong({ data }) {
   const classes = useStyles();
+  function getAlbumName() {
+    let data = localStorage.getItem("myData");
+    data = JSON.parse(data);
+    var title = data.strArtist + " - " + data.strAlbum;
+    return title;
+  }
+
   return (
     <div className={classes.root}>
+      <h2>{getAlbumName()}</h2>
       <ul>
         {data.map((entry) => (
           <li key={entry.idTrack} className={classes.item}>

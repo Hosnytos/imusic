@@ -12,7 +12,7 @@ function HorizontalList({ data }) {
       <ul className={classes.root}>
         {data.map((entry) => (
           <li key={entry.idTrack} className={classes.item}>
-            <Link to={`/movies/${entry.idTrack}`} className={classes.link}>
+            <Link to={`/tracks/${entry.idTrack}`} className={classes.link}>
               <PopularTracksCard {...entry} />
             </Link>
           </li>

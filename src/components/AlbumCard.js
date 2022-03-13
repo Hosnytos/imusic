@@ -1,5 +1,4 @@
 import React from "react";
-
 import useStyles from "./AlbumCard.style";
 
 function AlbumCard({ idAlbum, strAlbumThumb, strAlbum }) {
