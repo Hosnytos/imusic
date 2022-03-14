@@ -8,8 +8,11 @@ function VerticalSong({ data }) {
   function getAlbumName() {
     let data = localStorage.getItem("myData");
     data = JSON.parse(data);
-    var title = data.strArtist + " - " + data.strAlbum;
-    return title;
+    var title;
+    if (data != null) {
+      title = data.strArtist + " - " + data.strAlbum;
+    }
+    return title ? title : "Michael Jackson - Thriller";
   }
 
   return (

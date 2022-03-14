@@ -7,6 +7,7 @@ function ListeningSection() {
   const classes = useStyles();
   const [famousAlbum, setFamousAlbum] = useState([]);
   const [trackByAlbum, setTrackByAlbum] = useState([]);
+  const myId = getData();
 
   async function fetchFamousAlbum() {
     const response = await fetch(
@@ -55,10 +56,12 @@ function ListeningSection() {
   function getData() {
     let data = localStorage.getItem("myData");
     data = JSON.parse(data);
-    return data.idAlbum;
+    var idAlbum;
+    if (data != null) {
+      idAlbum = data.idAlbum;
+    }
+    return idAlbum ? idAlbum : "2118223";
   }
-
-  const myId = getData();
 
   useEffect(() => {
     fetchFamousAlbum();
