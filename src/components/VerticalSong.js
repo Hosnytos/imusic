@@ -21,7 +21,7 @@ function VerticalSong({ data }) {
       <ul>
         {data.map((entry) => (
           <li key={entry.idTrack} className={classes.item}>
-            <Link to={"#"} className={classes.link}>
+            <Link to={`/discover/${entry.idTrack}`} className={classes.link}>
               <SongCard {...entry} />
             </Link>
           </li>

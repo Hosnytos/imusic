@@ -8,12 +8,7 @@ export const SideBarData = [
     icon: <RiIcons.RiHome6Line />,
     cName: "nav-text",
   },
-  {
-    title: "Discover",
-    path: "/discover",
-    icon: <RiIcons.RiCompass3Line />,
-    cName: "nav-text",
-  },
+
   {
     title: "Favorites",
     path: "/favorites",
