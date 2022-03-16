@@ -28,14 +28,6 @@ const useStyles = createUseStyles({
   title: {
     marginBottom: 10,
   },
-  button: {
-    border: "none",
-    padding: "4px 8px",
-    backgroundColor: "black",
-    color: "white",
-    fontSize: 10,
-    fontWeight: 700,
-  },
   bold: {
     fontWeight: "bold",
   },

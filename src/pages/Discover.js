@@ -4,15 +4,11 @@ import { useParams } from "react-router-dom";
 import Rating from "../components/Rating";
 import useStyles from "./Discover.style";
 
-const OVERVIEW_SIZE = 340;
-
 function Discover() {
   const [trackById, setTrackById] = useState([]);
   const noBackgroundImage =
     "https://i.ytimg.com/an/BqKmavyftEA-fJm8s_6TmA/featured_channel.jpg?v=61f939c2";
   const classes = useStyles();
-  const [expand, setExpand] = useState(false);
-  const toggle = () => setExpand(!expand);
   const { id } = useParams();
 
   async function fetchTrackById() {
@@ -80,7 +76,6 @@ function Discover() {
               <br></br>
 
               <div>
-                <button className={classes.buttonYT}>Add to Fav</button>
                 <a
                   href={
                     entry.strMusicVid
@@ -106,27 +101,7 @@ function Discover() {
           <p>
             {entry.strDescriptionEN
               ? entry.strDescriptionEN
-              : "No description available.".substring(
-                  0,
-                  expand
-                    ? entry.strDescriptionEN
-                      ? entry.strDescriptionEN
-                      : "No description available.".length - 1
-                    : OVERVIEW_SIZE
-                )}
-            {!expand && entry.strDescriptionEN
-              ? entry.strDescriptionEN
-              : "No description available.".length > OVERVIEW_SIZE
-              ? "..."
-              : ""}
-            {!expand && (
-              <>
-                <br />
-                <button onClick={toggle} className={classes.button}>
-                  Lire plus
-                </button>
-              </>
-            )}
+              : "No description available."}
           </p>
         </div>
       ))}

@@ -2,8 +2,9 @@ import React from "react";
 import useStyles from "./VerticalSong.style";
 import { Link } from "react-router-dom";
 import SongCard from "./SongCard";
+import classNames from "classnames";
 
-function VerticalSong({ data }) {
+function VerticalSong({ data, className }) {
   const classes = useStyles();
   function getAlbumName() {
     let data = localStorage.getItem("myData");
@@ -18,7 +19,7 @@ function VerticalSong({ data }) {
   return (
     <div className={classes.root}>
       <h2>{getAlbumName()}</h2>
-      <ul>
+      <ul className={classNames([classes.root, className])}>
         {data.map((entry) => (
           <li key={entry.idTrack} className={classes.item}>
             <Link to={`/discover/${entry.idTrack}`} className={classes.link}>

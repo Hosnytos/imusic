@@ -6,11 +6,12 @@ import { SideBarData } from "./SideBarData";
 import "./NavBar.css";
 import Greetings from "./Greetings";
 import Input from "./Input";
-import ThemeSwitch from "./ThemeSwitch";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(true);
+  const favorites = useSelector((state) => state.favorites);
   return (
     <>
       <div className="navbar">
@@ -18,7 +19,7 @@ function Navbar() {
         <FaIcons.FaBars onClick={showSidebar} className="display-menu-icon" />
         <Greetings />
         <Input />
-        <ThemeSwitch />
+        <p className="totalFavsText">{`Total Favs (${favorites.length})`}</p>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
