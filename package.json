@@ -26,16 +26,16 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "commit": "git-cz",
-    "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
+    "format": "prettier --write {*,src/**/*}.{js,json,md,html,css}",
     "push": "git push -u origin main",
     "pull": "git pull origin main",
     "prepare": "husky install",
     "lint": "eslint src"
   },
   "lint-staged": {
-    "{*,src/**/*}.{js,json,md,html}": "prettier --write",
+    "{*,src/**/*}.{js,json,md,html,css}": "prettier --write",
     "*.js": "eslint",
-    "*.{js,json,md,html}": "prettier --write"
+    "*.{js,json,md,html,css}": "prettier --write"
   },
   "eslintConfig": {
     "extends": [
