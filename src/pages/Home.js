@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import HorizontalList from "../components/HorizontalList";
 import ListeningSection from "../components/ListeningSection";
 import useStyles from "./Home.style";
+import { popularAlbumsSlice, popularTracksSlice } from "../Slices";
+import { useDispatch, useSelector } from "react-redux";
 
 function Home() {
   const classes = useStyles();
-  const [famousTrack, setFamousTrack] = useState([]);
-  const [famousAlbum, setFamousAlbum] = useState([]);
+  const dispatch = useDispatch();
   const [trackByAlbum, setTrackByAlbum] = useState([]);
   const myId = getData();
 
@@ -29,7 +30,7 @@ function Home() {
       });
     const famousTrack = await response.json();
     const tracks = famousTrack.loved;
-    setFamousTrack(tracks);
+    dispatch(popularTracksSlice.actions.add({ loved: tracks }));
   }
   async function fetchFamousAlbum() {
     const response = await fetch(
@@ -50,7 +51,7 @@ function Home() {
       });
     const famousAlbums = await response.json();
     const albums = famousAlbums.loved;
-    setFamousAlbum(albums);
+    dispatch(popularAlbumsSlice.actions.add({ loved: albums }));
   }
 
   async function fetchTrackByAlbum(myId) {
@@ -86,15 +87,23 @@ function Home() {
   }
 
   useEffect(() => {
-    fetchFamousTrack();
-    fetchFamousAlbum();
     fetchTrackByAlbum(myId);
   }, [myId]);
+  useEffect(() => {
+    fetchFamousTrack();
+    fetchFamousAlbum();
+  });
+
+  const popularTracks = useSelector((state) => state.popularTracks);
+  const popularAlbums = useSelector((state) => state.popularAlbums);
 
   return (
     <div className={classes.root}>
-      <HorizontalList className={classes.list} data={famousTrack} />
-      <ListeningSection famousAlbum={famousAlbum} trackByAlbum={trackByAlbum} />
+      <HorizontalList className={classes.list} data={popularTracks} />
+      <ListeningSection
+        famousAlbum={popularAlbums}
+        trackByAlbum={trackByAlbum}
+      />
     </div>
   );
 }

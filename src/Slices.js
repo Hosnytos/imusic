@@ -16,3 +16,31 @@ export const favoritesSlice = createSlice({
         : [...state, action.payload.idTrack],
   },
 });
+
+export const popularTracksSlice = createSlice({
+  name: "popularTracks",
+  initialState: [],
+  reducers: {
+    add: (state, action) => [
+      ...state,
+      ...action.payload.loved.filter(
+        (popularTrack) =>
+          !state.some(({ idTrack }) => popularTrack.idTrack === idTrack)
+      ),
+    ],
+  },
+});
+
+export const popularAlbumsSlice = createSlice({
+  name: "popularAlbums",
+  initialState: [],
+  reducers: {
+    add: (state, action) => [
+      ...state,
+      ...action.payload.loved.filter(
+        (popularAlbum) =>
+          !state.some(({ idAlbum }) => popularAlbum.idAlbum === idAlbum)
+      ),
+    ],
+  },
+});

@@ -20,7 +20,11 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { favoritesSlice } from "./Slices";
+import {
+  favoritesSlice,
+  popularAlbumsSlice,
+  popularTracksSlice,
+} from "./Slices";
 
 const queryClient = new QueryClient();
 const persistConfig = {
@@ -32,6 +36,8 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     favorites: favoritesSlice.reducer,
+    popularTracks: popularTracksSlice.reducer,
+    popularAlbums: popularAlbumsSlice.reducer,
   })
 );
 

@@ -12,7 +12,7 @@ function VerticalAlbum({ data }) {
       strAlbum: `${strAlbum}`,
     };
     localStorage.setItem("myData", JSON.stringify(obj));
-    window.location.reload();
+    window.scrollTo(0, 0);
   }
 
   return (

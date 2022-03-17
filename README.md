@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# IMusic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app displays a list of popular albums, tracks and details on each one of them.
+It is based on TheAudioDB's Api.
+
+### Lien de la vidéo démo du fonctionnement du site : [Video demo](https://www.youtube.com/watch?v=SZ99pek0xRc)
 
 ## Available Scripts
 
