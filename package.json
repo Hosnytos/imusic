@@ -9,6 +9,7 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "classnames": "^2.3.1",
+    "git-cz": "^4.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -26,9 +27,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "commit": "git-cz",
+    "commit": "git-cz -a",
+    "format": "prettier --write {*,src/**/*}.{js,json,md,html,css}",
     "push": "git push -u origin main",
-    "pull": "git pull origin main"
+    "pull": "git pull origin main",
+    "prepare": "husky install",
+    "lint": "eslint src"
+  },
+  "lint-staged": {
+    "{*,src/**/*}.{js,json,md,html,css}": "prettier --write",
+    "*.js": "eslint",
+    "*.{js,json,md,html,css}": "prettier --write"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +56,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-react-app": "^7.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.6",
+    "prettier": "^2.6.0"
   }
 }
